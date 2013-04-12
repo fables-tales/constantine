@@ -1,6 +1,6 @@
 # Constantine
 
-TODO: Write a gem description
+A gem for doing game jam constant management
 
 ## Installation
 
@@ -18,7 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+bin/constantine-server is the server. Developers point yourself to `/?dev=1` to
+get dev mode, and allow yourself to add constants, btw this is unverified atm
+so might kill you.
 
 ## Contributing
 
