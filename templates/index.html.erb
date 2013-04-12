@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fucking constants, how do they work</title>
+        <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="custom.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="container">
+          <div class="row">
+            <table border="1" class="span12 text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Update</th>
+                </tr>
+                <%= forms %>
+            </table>
+          </div>
+          <div class="row">
+            <hr/>
+            <button id="update-all" class="btn">Update All</button>
+            <% if developer %>
+              <%= dev_form %>
+            <% end %>
+          </div>
+        </div>
+    </body>
+</html>
