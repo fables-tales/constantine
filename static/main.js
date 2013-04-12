@@ -16,7 +16,15 @@ $(document).ready(function() {
         var eid = the_id.replace("-send", "");
         var constant_name = the_id.split("-")[0];
         console.log("sending");
-        $.post("/constants/" + constant_name, {"value" : $("#" + eid).val()}, function(response) {
+        var params = {}
+
+        if (eid.indexOf("boolean") != -1) {
+            params["value"] = $("#" + eid).is(":checked");
+        } else {
+            params["value"] = $("#" + eid).val();
+        }
+
+        $.post("/constants/" + constant_name, params, function(response) {
             reloading -= 1;
             if (reloading == 0) {
                 console.log("reloading!");

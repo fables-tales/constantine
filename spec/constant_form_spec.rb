@@ -9,14 +9,14 @@ describe Constantine::ConstantForm do
     end
 
     it "can be updated from a valid value" do
-      params = { :"floating_name-float" => "3.141" }
+      params = { "value" => "3.141" }
       c = Constantine::ConstantForm.new(constant)
       c.consume_params(params)
       expect(constant.value).to eql(3.141)
     end
 
     it "can't be updates from an invalid value" do
-      params = { :"floating_name-float" => "wqifjqweofijasfioajsdfoij" }
+      params = { "value" => "wqifjqweofijasfioajsdfoij" }
       c = Constantine::ConstantForm.new(constant)
       expect { c.consume_params(params) }.to raise_error /invalid value/
     end

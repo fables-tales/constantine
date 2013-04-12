@@ -21,10 +21,12 @@ end
 post "/constants" do
   c = Constantine::Constant.new(params[:name], params[:type].to_sym, params[:value])
   CONSTANTS.add_constant(c)
+  CONSTANTS.save!
   '{"success":"true"}'
 end
 
 post "/constants/:constname" do
   CONSTANTS.update_constant(params[:constname], params)
+  CONSTANTS.save!
   '{"success":"true"}'
 end
