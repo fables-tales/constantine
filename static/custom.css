@@ -1,0 +1,13 @@
+tr {
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+
+td input {
+    margin-bottom:0px !important;
+}
+
+td {
+    padding-top:10px;
+    padding-bottom:10px;
+}
