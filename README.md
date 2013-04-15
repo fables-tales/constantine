@@ -4,17 +4,10 @@ A gem for doing game jam constant management
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'constantine'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install constantine
+ * Clone this repo.
+ * `bundle install`
+ * `bundle exec bin/constantine-server`
+ * Web browser to: `http://localhost:4567`
 
 ## Usage
 
