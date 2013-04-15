@@ -12,16 +12,12 @@ module Constantine
     end
 
     def form
-      result ="<tr><td>#{@constant.name}</td>" +
-        "<td>#{@constant.type}</td>"
-      if @constant.type != :boolean
-        result += "<td><input type='text' placeholder='#{@constant.value}' id='#{field_name}'></input></td>" 
-      else
-        result += "<td><input type='checkbox' id='#{field_name}'"
-        result += " checked" if @constant.value
-        result += "></td>"
-      end
-        result += "<td><button class='btn' id='#{field_name}-send'>Send</button></td></tr>"
+      result = "<tr>"
+      result += "<td>#{@constant.name}</td>"
+      result += "<td>#{@constant.type}</td>"
+      result += "<td>#{input_element}</td>"
+      result += "<td>#{button_element}</td>"
+      result += "</tr>"
     end
 
     def consume_params(form_params)
@@ -32,6 +28,22 @@ module Constantine
 
     def casted_value(form_params)
       CONVERTERS[@constant.type].call(form_params["value"])
+    end
+
+    def input_element
+      if @constant.type != :boolean
+        "<input type='text' placeholder='#{@constant.value}' id='#{field_name}'></input>"
+      else
+        result = ""
+        result += "<input type='checkbox' id='#{field_name}'"
+        result += " checked" if @constant.value
+        result += ">"
+        return result
+      end
+    end
+
+    def button_element
+      "<button class='btn' id='#{field_name}-send'>Send</button>"
     end
 
     def field_name
