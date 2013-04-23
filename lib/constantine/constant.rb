@@ -36,11 +36,6 @@ module Constantine
       validate
     end
 
-    def validate
-      validate_type
-      validate_value
-    end
-
     def to_csv
       "#{@name},#{@type},#{@value}"
     end
@@ -51,6 +46,12 @@ module Constantine
     end
 
     private
+
+    def validate
+      validate_type
+      validate_value
+    end
+
 
     def validate_type
       raise "invalid type #{@type}, valid types are #{self.class.valid_types.inspect}" unless self.class.valid_types.include? @type
