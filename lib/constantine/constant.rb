@@ -41,8 +41,14 @@ module Constantine
     end
 
     def value=(new_value)
+      old_value = @value
       @value = new_value
-      validate
+      begin
+        validate
+      rescue => validation_error
+        @value = old_value
+        raise validation_error
+      end
     end
 
     private
