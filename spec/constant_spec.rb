@@ -51,4 +51,12 @@ describe Constantine::Constant do
       expect(c.to_csv).to eql("name,integer,1")
     end
   end
+
+  context "when updated with an invalid value" do
+    it "rejects the new value" do
+      c = Constantine::Constant.new(nil, :integer, 1)
+      expect{ c.value = "eyes" }.to(raise_error(/invalid value .* for type integer/))
+      expect(c.value).to eql(1)
+    end
+  end
 end
