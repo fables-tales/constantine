@@ -1,3 +1,5 @@
+require "json"
+
 module Constantine
   class Constants
     def initialize(file = nil)
@@ -12,6 +14,10 @@ module Constantine
 
     def to_csv
       @constants.map(&:to_csv).join("\n")
+    end
+
+    def to_json
+      {:constants => @constants.map(&:to_h)}.to_json
     end
 
     def add_constant(constant)

@@ -14,8 +14,8 @@ get "/" do
   ERB.new(open("templates/index.html.erb").read).result(binding)
 end
 
-get "/csv" do
-  CONSTANTS.to_csv
+get "/json" do
+  CONSTANTS.to_json
 end
 
 post "/constants" do

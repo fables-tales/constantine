@@ -40,6 +40,10 @@ module Constantine
       "#{@name},#{@type},#{@value}"
     end
 
+    def to_h
+      {:name => @name, :type => @type, :value => @value}
+    end
+
     def value=(new_value)
       old_value = @value
       @value = new_value
